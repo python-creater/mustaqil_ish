@@ -1,0 +1,411 @@
+/* Asosiy o'zgaruvchilar va reset */
+:root {
+  --bg-page: #f1f5f9;
+  --bg-card: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #475569;
+  --primary: #0f766e;
+  --primary-hover: #115e59;
+  --accent-bg: #f0fdfa;
+  --border-color: #cbd5e1;
+  --danger: #dc2626;
+  --danger-bg: #fef2f2;
+  --shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* Header va Navigatsiya */
+.site-header {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-title {
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.brand-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-list a:hover {
+  background-color: var(--accent-bg);
+  color: var(--primary);
+}
+
+/* Asosiy kontent va umumiy karta uslubi */
+.main-content {
+  flex: 1;
+  padding-top: 24px;
+  padding-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+h2 {
+  font-size: 1.18rem;
+  margin-bottom: 12px;
+  color: var(--text-main);
+}
+
+/* 1-bo'lim: Vosita haqida */
+.about-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text p {
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.feature-list {
+  padding-left: 20px;
+  color: var(--text-main);
+  font-size: 0.94rem;
+}
+
+.feature-list li {
+  margin-bottom: 4px;
+}
+
+.about-schema {
+  flex-shrink: 0;
+  background-color: #f8fafc;
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+/* Ikki ustunli asosiy maket (Flexbox talabi) */
+.workspace-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.editor-column {
+  flex: 1.4;
+}
+
+.stats-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.section-top h2 {
+  margin-bottom: 0;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Tugmalar */
+.btn {
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 7px 13px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn-secondary {
+  background-color: var(--accent-bg);
+  color: var(--primary);
+  border-color: #99f6e4;
+}
+
+.btn-secondary:hover {
+  background-color: #ccfbf1;
+}
+
+.btn-danger {
+  background-color: var(--danger-bg);
+  color: var(--danger);
+  border-color: #fecaca;
+}
+
+.btn-danger:hover {
+  background-color: #fee2e2;
+}
+
+/* Textarea */
+textarea {
+  width: 100%;
+  min-height: 290px;
+  padding: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+}
+
+.status-msg {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  background-color: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border-left: 3px solid var(--primary);
+}
+
+.status-msg.warning {
+  color: #b45309;
+  background-color: #fffbeb;
+  border-left-color: #d97706;
+}
+
+/* Statistika kartalari */
+.stats-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.stat-card {
+  flex: 1 1 calc(50% - 6px);
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+.stat-label {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.stat-value {
+  font-size: 1.55rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Eng ko'p uchragan so'zlar ro'yxati */
+.top-words-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.top-word-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 12px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.94rem;
+}
+
+.word-rank {
+  font-weight: 700;
+  color: var(--primary);
+  margin-right: 8px;
+}
+
+.word-count-badge {
+  background-color: var(--accent-bg);
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 2px 9px;
+  border-radius: 12px;
+  border: 1px solid #99f6e4;
+}
+
+.empty-item {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  padding: 8px 0;
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  padding: 16px 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Planshet va telefon ekranlari uchun responsivlik */
+@media (max-width: 860px) {
+  .about-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .workspace-layout {
+    flex-direction: column;
+  }
+
+  .editor-column,
+  .stats-column {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-list {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .section-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stat-card {
+    flex: 1 1 100%;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}

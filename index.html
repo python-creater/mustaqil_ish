@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matn tahlilchisi — Matn statistikasi va chastota tahlili</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="brand-badge">MT</span>
+        <div>
+          <h1 class="brand-title">Matn Tahlilchisi</h1>
+          <p class="brand-sub">Real vaqtda matn statistikasi va so'z chastotasi vositasi</p>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Asosiy menyu">
+        <ul class="nav-list">
+          <li><a href="#vosita-haqida">Vosita haqida</a></li>
+          <li><a href="#tahlil-maydoni">Matn tahlili</a></li>
+          <li><a href="#kop-sozlar">Ko'p uchragan so'zlar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    
+    <!-- 1-bo'lim: Vosita haqida -->
+    <section id="vosita-haqida" class="about-section card">
+      <div class="about-text">
+        <h2>Vosita haqida</h2>
+        <p>
+          Ushbu veb-ilova kiritilgan har qanday o'zbek yoki boshqa tillardagi matnni tezkor tahlil qilishga mo'ljallangan. 
+          Matn yozish jarayonida belgilar, so'zlar va jumlalar soni avtomatik ravishda hisoblanadi hamda matnda eng ko'p 
+          takrorlangan 5 ta so'z ajratib ko'rsatiladi.
+        </p>
+        <ul class="feature-list">
+          <li>Bo'shliqlar bilan va bo'shliqlarsiz belgilar hisobi</li>
+          <li>Tinish belgilaridan tozalangan aniq so'zlar va jumlalar sanog'i</li>
+          <li>Eng ko'p uchraydigan 5 ta so'z reytingi</li>
+        </ul>
+      </div>
+
+      <div class="about-schema">
+        <svg viewBox="0 0 260 150" width="260" height="150" role="img" aria-label="Matnni kiritish, qayta ishlash va statistika chiqarish sxemasi">
+          <rect x="8" y="45" width="68" height="60" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"></rect>
+          <text x="42" y="72" text-anchor="middle" font-size="11" font-weight="bold" fill="#0369a1">1. Matn</text>
+          <text x="42" y="88" text-anchor="middle" font-size="10" fill="#0c4a6e">Kiritish</text>
+
+          <line x1="76" y1="75" x2="94" y2="75" stroke="#64748b" stroke-width="2"></line>
+          <polygon points="94,71 101,75 94,79" fill="#64748b"></polygon>
+
+          <rect x="102" y="35" width="68" height="80" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"></rect>
+          <text x="136" y="70" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">2. Tahlil</text>
+          <text x="136" y="86" text-anchor="middle" font-size="10" fill="#78350f">JS algoritm</text>
+
+          <line x1="170" y1="75" x2="188" y2="75" stroke="#64748b" stroke-width="2"></line>
+          <polygon points="188,71 195,75 188,79" fill="#64748b"></polygon>
+
+          <rect x="196" y="45" width="56" height="60" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"></rect>
+          <text x="224" y="72" text-anchor="middle" font-size="11" font-weight="bold" fill="#15803d">3. Natija</text>
+          <text x="224" y="88" text-anchor="middle" font-size="10" fill="#14532d">Statistika</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 2 va 3-bo'limlar: Ikki ustunli Flexbox maket (Matn kiritish va Statistika) -->
+    <div id="tahlil-maydoni" class="workspace-layout">
+      
+      <!-- 2-bo'lim: Matn kiritish maydoni (textarea) -->
+      <section class="editor-column card" aria-labelledby="editor-heading">
+        <div class="section-top">
+          <h2 id="editor-heading">Matn kiritish maydoni</h2>
+          <div class="editor-actions">
+            <button type="button" id="sample-btn" class="btn btn-secondary">Namuna matn</button>
+            <button type="button" id="clear-btn" class="btn btn-danger">Tozalash</button>
+          </div>
+        </div>
+
+        <label for="text-input" class="visually-hidden">Tahlil qilinadigan matnni kiriting</label>
+        <textarea 
+          id="text-input" 
+          rows="13" 
+          placeholder="Bu yerga tahlil qilmoqchi bo'lgan matningizni yozing yoki nusxalab joylashtiring..."
+        ></textarea>
+
+        <p id="status-message" class="status-msg" role="status" aria-live="polite">
+          Tahlil qilish uchun yuqoridagi maydonga matn kiriting.
+        </p>
+      </section>
+
+      <!-- 3 va 4-bo'limlar: Statistika kartalari va eng ko'p uchragan so'zlar -->
+      <aside class="stats-column" aria-labelledby="stats-heading">
+        
+        <section class="card stats-box">
+          <h2 id="stats-heading">Matn statistikasi</h2>
+          
+          <div class="stats-cards">
+            <article class="stat-card">
+              <span class="stat-label">Belgilar (jami)</span>
+              <strong id="char-count" class="stat-value">0</strong>
+            </article>
+
+            <article class="stat-card">
+              <span class="stat-label">Belgilar (bo'shliqsiz)</span>
+              <strong id="char-no-space-count" class="stat-value">0</strong>
+            </article>
+
+            <article class="stat-card">
+              <span class="stat-label">So'zlar soni</span>
+              <strong id="word-count" class="stat-value">0</strong>
+            </article>
+
+            <article class="stat-card">
+              <span class="stat-label">Jumlalar soni</span>
+              <strong id="sentence-count" class="stat-value">0</strong>
+            </article>
+          </div>
+        </section>
+
+        <!-- 4-bo'lim: Eng ko'p uchragan so'zlar ro'yxati -->
+        <section id="kop-sozlar" class="card top-words-box">
+          <h2>Eng ko'p uchragan 5 ta so'z</h2>
+          <ul id="top-words-list" class="top-words-list">
+            <li class="empty-item">Hozircha ma'lumot yo'q</li>
+          </ul>
+        </section>
+
+      </aside>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Frontend dasturlash asoslari — Mustaqil ta'lim loyihasi (30-mavzu)</p>
+      <p>Andijon davlat universiteti • 2026</p>
+    </div>
+  </footer>
+
+    <script defer src="js/script.js"></script>
+</body>
+</html>
